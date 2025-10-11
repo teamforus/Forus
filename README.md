@@ -2,8 +2,8 @@
 Forus is a platform that brings together sponsors, providers, requesters and validators. The sponsor makes funds available to the applicant. The requester applies to a fund and waits for approval. As soon as the validator agrees, the applicant will receive a voucher. He or she can redeem this voucher at a participating provider. The transaction goes through the [Me app](https://github.com/teamforus/me).
 
 ## License
-### 1. About the Forus Foundation
-The Forus Foundation is the developer of the Forus platform 
+### 1. About Stichting Forus (the Forus Foundation)
+Stichting Forus (hereafter: The Forus Foundation) is the developer of the Forus platform 
 and the mobile application 'Me' (collectively hereinafter referred to as 'Software'). 
 One of the goals of the Forus Foundation is providing its Software as open source. 
 This is to ensure continuity for users, to prevent vendor lock-in and to develop 
