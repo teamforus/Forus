@@ -6,6 +6,12 @@ Docs for running and contributing to Forus.
 2. [seeding-test-data.md](seeding-test-data.md) — seed organizations, funds, and test identities.
 3. [login-and-test-users.md](login-and-test-users.md) — how login works locally, and the dev token shortcut.
 
+## Feature docs
+
+Documentation for specific features lives under `features/`. Add a new file here when a feature needs its own reference.
+
+- [features/translations.md](features/translations.md) — how webshop translations work, and how to change strings safely.
+
 ## Related references
 
 - [../CONTRIBUTING.md](../CONTRIBUTING.md) — minimal contribution flow.

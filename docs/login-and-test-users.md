@@ -50,6 +50,8 @@ Use this when mail is broken or you just want to get in.
 
 This bypasses email delivery entirely. Treat it as a dev-only convenience.
 
+The token is tied to an identity, not to a specific dashboard, but the frontend must still send the right headers for its implementation. For the sponsor dashboard these are `Client-Key: general` and `Client-Type: sponsor` (set automatically by `env.js`). A wrong `Client-Key` returns `403` on `/api/v1/identity` and looks like a hang.
+
 ## Key considerations
 
 - **Use normal email login for realistic testing.** The token shortcut skips parts of the auth flow and can hide bugs.
@@ -59,15 +61,15 @@ This bypasses email delivery entirely. Treat it as a dev-only convenience.
   localStorage.removeItem('active_account');
   location.reload();
   ```
-- **If the dashboard hangs after login** (requests pending, logo-only screen), the backend is usually stuck. Restart backend services and check backend logs.
-
-## Logging out
-
-- Use the UI logout, or in DevTools:
-  ```js
-  localStorage.removeItem('active_account');
-  location.reload();
+- **If the dashboard hangs after login** (requests pending, logo-only screen), the backend is stale. `php artisan serve` is single-threaded and keeps in-memory state from boot, so after a `test-data:seed` it can still point at rows the seeder replaced. Restart `php artisan serve` (or the backend container). Quick check from a terminal (replace `<TOKEN>`):
+  ```bash
+  curl -i --max-time 5 \
+    -H 'Client-Key: general' -H 'Client-Type: sponsor' \
+    -H 'Authorization: Bearer <TOKEN>' \
+    http://127.0.0.1:8000/api/v1/identity
   ```
+  Expect `HTTP 200`. If it hangs or returns `403`, restart `php artisan serve` (or the backend container) before anything else. No re-seed needed — your existing token stays valid.
+- **Automated / headless browsers:** prefer the dev token shortcut over the email form. The email form submit relies on React state that synthetic typing does not always trigger, so the `POST /identity/proxy/email` request may never fire. Setting `localStorage.active_account` directly avoids this.
 
 ## Done
 
