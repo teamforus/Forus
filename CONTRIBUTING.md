@@ -4,39 +4,79 @@ Thank you for your interest in contributing to Forus. This guide outlines the ba
 
 ## Before you start
 
+- Read [docs/index.md](docs/index.md) for a quick overview of available documentation.
 - Read [docs/local-setup.md](docs/local-setup.md) and get the project running locally.
+- Read [docs/seeding-test-data.md](docs/seeding-test-data.md) to seed test data for local development and testing.
 - Read [docs/login-and-test-users.md](docs/login-and-test-users.md) so you can log in.
 - Security-related issues should not be reported in a public issue. Please follow the process in [backend/SECURITY.md](backend/SECURITY.md).
 
-## Branching
+## Main repo and submodules
 
-- Create your branch from the default branch for this repository.
-- For teamforus/Forus, that branch is currently master.
-- Use a short, descriptive branch name.
+Forus has one main repository and two submodules:
 
-## If your change is in a submodule
+- Main repo: `teamforus/Forus`
+- Backend submodule: `backend/` -> `teamforus/forus-backend`
+- Frontend submodule: `forus-frontend-react/` -> `teamforus/forus-frontend-react`
 
-This repository contains submodules:
+## Adding changes
 
-- `backend/` -> `teamforus/forus-backend`
-- `forus-frontend-react/` -> `teamforus/forus-frontend-react`
-
-Open the pull request in the repository that contains the changed files:
+Open your pull request in the repository that contains your changes:
 
 - Changes in `docs/`, `README.md`, or `CONTRIBUTING.md` -> PR in `teamforus/Forus`
 - Changes in `backend/*` -> PR in `teamforus/forus-backend`
 - Changes in `forus-frontend-react/*` -> PR in `teamforus/forus-frontend-react`
 
-## Making changes
+Branch from the correct branch of that repository:
 
-- Keep changes focused. One concern per pull request.
-- Update or add tests when your change affects how something works.
-  - Backend tests in `backend/tests/` help check that core logic and API behavior still work.
-  - Frontend tests should follow existing patterns and help catch broken UI or interaction changes.
+- In `teamforus/Forus`, branch from `master`
+- In `teamforus/forus-backend`, branch from `develop`
+- In `teamforus/forus-frontend-react`, branch from `develop`
+
+### Branch naming
+
+Use lowercase branch names with a type prefix and a short description:
+
+- Format: `<type>/<short-description>` (for example `feature/new-login`)
+- Use only lowercase letters, numbers, and hyphens in the description
+- Do not use spaces, underscores, punctuation, repeated hyphens, or trailing hyphens
+
+Recommended prefixes:
+
+- `feature/` for new functionality
+- `bugfix/` for non-critical fixes
+- `hotfix/` for urgent production fixes
+- `release/` for release related changes (for example `release/v174`)
+- `docs/` for documentation related changes
+- `deps/` for dependency updates (for example Composer or npm package updates)
+- `test/` for test-only changes (for example adding or updating automated tests)
+
+### Commit messages
+
+Use short, clear commit messages that explain what changed.
+
+- Format: `<type>: <short summary>` (for example `docs: clarify submodule contribution flow`)
+- Use a commit type that matches the branch prefix where possible
+- Keep the summary in lowercase and imperative style (for example `add`, `fix`, `update`, `remove`)
+- Keep the first line focused and concise
+
+## Making changes checklist
+
+1. Keep changes focused. One concern per pull request. Concider splitting if multiple concerens are adressed.
+2. Confirm you are on the correct branch for your change, check the name and relates to the concern.
+3. Make sure your local branch is up to date with the latest remote changes. Do a final remote check.
+5. Conduct you local tests (see next section for details).
+4. Before committing and pushing, make sure only intended files are staged for the PR.
 
 ## Running checks locally
 
-Before opening a pull request, run a few basic checks on your own machine. These are recommended checks that help catch obvious problems early.
+Before opening a pull request, run the basic checks on your own machine. These checks help catch obvious problems early.
+
+1. Manually test the changed flow(s) yourself.
+2. Run backend tests.
+3. Run the frontend build check.
+4. Database check
+
+### Backend tests
 
 Backend, from `backend/`:
 
@@ -46,6 +86,8 @@ php artisan test
 
 This runs the backend tests and helps check that important application behavior still works.
 
+
+### Frontend tests
 Frontend, from `forus-frontend-react/`:
 
 ```bash
@@ -53,6 +95,8 @@ npm run build
 ```
 
 This checks whether the frontend code can still be compiled successfully. It helps catch technical problems such as broken imports, syntax errors, or other build issues. It does not confirm that the interface works correctly in practice, so also test your changes manually when needed.
+
+### Database check
 
 If you changed the database structure, also verify that the migration works and can be rolled back safely:
 
