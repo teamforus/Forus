@@ -74,7 +74,9 @@ Before opening a pull request, run the basic checks on your own machine. These c
 1. Manually test the changed flow(s) yourself.
 2. Run backend tests.
 3. Run the frontend build check.
+4. Database check
 
+### Backend tests
 
 Backend, from `backend/`:
 
@@ -84,6 +86,8 @@ php artisan test
 
 This runs the backend tests and helps check that important application behavior still works.
 
+
+### Frontend tests
 Frontend, from `forus-frontend-react/`:
 
 ```bash
@@ -91,6 +95,8 @@ npm run build
 ```
 
 This checks whether the frontend code can still be compiled successfully. It helps catch technical problems such as broken imports, syntax errors, or other build issues. It does not confirm that the interface works correctly in practice, so also test your changes manually when needed.
+
+### Database check
 
 If you changed the database structure, also verify that the migration works and can be rolled back safely:
 
