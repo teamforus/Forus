@@ -59,17 +59,22 @@ Use short, clear commit messages that explain what changed.
 - Keep the summary in lowercase and imperative style (for example `add`, `fix`, `update`, `remove`)
 - Keep the first line focused and concise
 
-## Making changes
+## Making changes checklist
 
-- Keep changes focused. One concern per pull request.
-- Before pushing, make sure your branch is up to date with the latest remote changes.
-- Update or add tests when your change affects how something works.
-  - Backend tests in `backend/tests/` help check that core logic and API behavior still work.
-  - Frontend tests should follow existing patterns and help catch broken UI or interaction changes.
+1. Keep changes focused. One concern per pull request. Concider splitting if multiple concerens are adressed.
+2. Confirm you are on the correct branch for your change, check the name and relates to the concern.
+3. Make sure your local branch is up to date with the latest remote changes. Do a final remote check.
+5. Conduct you local tests (see next section for details).
+4. Before committing and pushing, make sure only intended files are staged for the PR.
 
 ## Running checks locally
 
-Before opening a pull request, run a few basic checks on your own machine. These are recommended checks that help catch obvious problems early.
+Before opening a pull request, run the basic checks on your own machine. These checks help catch obvious problems early.
+
+1. Manually test the changed flow(s) yourself.
+2. Run backend tests.
+3. Run the frontend build check.
+
 
 Backend, from `backend/`:
 
