@@ -47,90 +47,49 @@ Refresh Mailpit and confirm the message appears.
 
 ## Digest email testing
 
-Digest commands only send mail when they find **new** matching activity since each organization’s or fund’s last digest time (see [Digest emails](../features/digest-emails.md)). Running `test-data:seed` fills the database and disables outgoing mail during the seed run; it does not replace the step of adding **fresh** digest-visible activity when you want to preview digests again.
+Digest commands only send mail when they find **new** matching activity since each organization’s or fund’s last digest time (see [Digest emails](../features/digest-emails.md)). Running `test-data:seed` fills the database and disables outgoing mail during the seed run; it does not create ongoing digest-visible activity by itself.
 
-You can create activity by using the product manually (reservations, approvals, and so on), but covering every digest path that way is slow and easy to miss. For local QA, use the `test-data:make-digest-events` command below: it appends digest-oriented EventLog rows on top of an already seeded database. The command does not cover every email path; see [Out of scope](#out-of-scope).
-
-**Prerequisites:** complete [Local setup](../local-setup.md) and [Seeding test data](../seeding-test-data.md) once so baseline organizations, funds, and identities exist. You do not need to re-seed every time you test mail.
+**Prerequisites:** complete [Local setup](../local-setup.md) and [Seeding test data](../seeding-test-data.md) once so baseline organizations, funds, and identities exist.
 
 **Typical flow:**
 
 1. Configure Mailpit and `backend/.env` as in [Local inbox](#local-inbox).
-2. Create fresh digest test events: `php artisan test-data:make-digest-events` (see commands below).
-3. Run the digest Artisan commands.
+2. Use the dashboards (sponsor, provider, requester, validator) to perform real actions that produce the kinds of events described in [Digest emails](../features/digest-emails.md): approvals, reservations, fund requests, provider messages, product updates where applicable, and so on. Repeat or combine actions until you expect a digest run to include something new.
+3. From `backend/`, run the digest Artisan commands you want to inspect (for example `php artisan forus.digest:all`, plus any separate commands mentioned in `backend/app/Console/Commands/Digests/` or your scheduler setup).
 4. Inspect messages in Mailpit.
 
-Create digest events in two modes:
+Digest behaviour depends on selection logic and timestamps; recipient counts and subjects vary with data and locale.
 
-```bash
-php artisan test-data:make-digest-events --mode=singular
-php artisan forus.digest:all
-php artisan forus.digest:provider_reservations
-php artisan forus.sponsor_products_update_digest
+### Singular and plural wording
 
-php artisan test-data:make-digest-events --mode=plural
-php artisan forus.digest:all
-php artisan forus.digest:provider_reservations
-php artisan forus.sponsor_products_update_digest
-```
+Many digest strings use Laravel `trans_choice(...)`. Where it applies, verify singular copy by ensuring only **one** new relevant item sits behind the digest window, and plural copy by creating **two or more** relevant items before running the digest command again.
 
-Use `singular` to create one relevant event per digest type. Use `plural` to create two relevant events per digest type. This lets you verify both `trans_choice(...)` paths.
+### What to check in Mailpit
 
-`forus.digest:all` does not include every digest command. Run `forus.digest:provider_reservations` and `forus.sponsor_products_update_digest` separately when testing all digest email templates.
-
-## What to expect
-
-The command appends activity on top of the existing seeded data. Digest emails are sent to all matching identities and organization employees, so each digest run typically produces several emails per type (one per recipient), not one email total.
-
-Running each mode once on the default seeded dataset produces roughly **25 emails** in Mailpit, with this approximate distribution:
-
-- ~21 requester webshop updates (one per matching identity-fund combination);
-- 2 provider fund updates;
-- 1 provider product reservation update;
-- 1 provider reservations update;
-- 1 sponsor product change update;
-- 1 validator fund request update.
-
-Plural mode produces roughly the same number of emails as singular; what changes is the wording inside each email (`trans_choice` singular versus plural strings), not the recipient count.
-
-Use these emails for visual checks:
+Use rendered emails for visual checks:
 
 - subject and heading text;
-- singular versus plural wording (compare a singular run with a plural run);
+- singular versus plural wording where `trans_choice` applies;
 - general layout and readability;
 - button labels;
 - whether links render as buttons.
 
-## What the command covers
+## Limitations
 
-The `test-data:make-digest-events` command appends EventLog rows for the following digest types:
+Local Mailpit testing does not replace production mail provider behaviour. Coverage depends on which flows you exercise manually; not every digest branch may be reachable without specific seeded data or UI paths.
 
-- `provider_funds` — provider approval (budget) and an individual product approval.
-- `provider_products` — product or service reservation events.
-- `provider_reservations` — reservation status activity.
-- `requester` — new providers approved for a fund.
-- `sponsor` — provider feedback messages (when seeded chats exist).
-- `sponsor_product_updates` — monitored product field changes (only when the sponsor has `allow_product_updates` enabled).
-- `validator` — new fund requests.
+Out of scope for this guide:
 
-## Out of scope
-
-The `test-data:make-digest-events` command is for local visual QA. It does not exhaustively trigger every digest branch.
-
-Out of scope:
-
-- every provider fund sub-state (revoked, sponsor feedback, every individual product combination);
-- sponsor digest subsections that need new `FundProvider` or `Product` rows (pending providers, approved providers, unsubscribed providers, new products);
-- every reservation state;
-- every locale;
+- every digest subsection and edge case;
+- every reservation state and locale;
 - automated assertions on rendered HTML;
-- real email delivery outside Mailpit.
+- delivery beyond your local catcher.
 
 ## Troubleshooting
 
 - **No email in Mailpit** — check `MAIL_HOST`, `MAIL_PORT`, and that Mailpit is running.
-- **Digest command succeeds but sends no email** — there may be no fresh matching events since the last digest timestamp.
-- **Only one text variant appears** — create both singular and plural digest events before running the matching digest commands.
+- **Digest command succeeds but sends no email** — there may be no fresh matching events since the last digest timestamp; perform new qualifying actions and retry.
+- **Only one text variant appears** — adjust how many matching items you create before the digest run so singular versus plural paths can both appear.
 
 ## Related
 
