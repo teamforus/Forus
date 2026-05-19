@@ -1,12 +1,12 @@
 # Digest emails
 
-Digest emails summarize recent activity instead of sending one email per event. They are built from event logs and sent by Artisan commands. They are received by employees of organisations or by fund requesters who need to act on recent changes.
+Digest emails summarize recent activity and notify users about actions they may need to take, such as validating new fund requests, reviewing provider applications, or accepting or rejecting product reservations. For people with vouchers, digest emails can highlight new spending options in the form of new providers or products available in the webshop. Instead of sending a separate email for every event, related updates are bundled into a single overview.
 
 ## How they work
 
-The digest feature looks for relevant activity since the previous digest timestamp. If no new matching activity exists, the digest command will run successfully without sending any email. If it does find activity it will send the relevant e-mails.
+The digest feature looks for relevant activity since the previous digest timestamp. The e-mails are built from event logs and sent by Artisan commands. If no new matching activity exists, the digest command will run successfully without sending any email. If it does find activity it will send the relevant e-mails.
 
-As a side note: The regular test-data seeder creates the baseline data: organizations, funds, providers, products, vouchers, reservations, and fund requests. Outgoing email is disabled while seeding, so those activities are out of scope of the first digest.
+As a side note in regard to first use after the initial local platform setup: The regular test-data seeder creates the baseline data: organizations, funds, providers, products, vouchers, reservations, and fund requests. Outgoing email is disabled while seeding, so those activities are out of scope of the first digest. This means that new activity within the system is needed to be able to trigger the digests.
 
 ## Relevant files and folders
 
