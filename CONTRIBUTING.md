@@ -18,6 +18,12 @@ Forus has one main repository and two submodules:
 - Backend submodule: `backend/` -> `teamforus/forus-backend`
 - Frontend submodule: `forus-frontend-react/` -> `teamforus/forus-frontend-react`
 
+Clone the main repo with submodules (see [docs/local-setup.md](docs/local-setup.md#get-the-project)):
+
+```bash
+git clone --recurse-submodules https://github.com/teamforus/Forus.git
+```
+
 ## Adding changes
 
 Open your pull request in the repository that contains your changes:
