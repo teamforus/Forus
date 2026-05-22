@@ -2,45 +2,32 @@
 
 Docs for running and contributing to Forus.
 
-For branches, commits, and pull requests, see [CONTRIBUTING.md](../CONTRIBUTING.md).
-
 ## Getting started
 
-1. [local-setup.md](local-setup.md) — run the backend and frontend.
-2. [seeding-test-data.md](seeding-test-data.md) — seed organizations, funds, and test identities.
-3. [login-and-test-users.md](login-and-test-users.md) — how login works locally, and the dev token shortcut.
+To run Forus locally for development or testing, follow these steps in order:
 
-## Documentation guidelines
+1. [local-setup.md](local-setup.md) — prepare your machine (editor, Git, Docker or native stack), clone the repo with submodules, then start the backend and frontend (Docker or native).
+2. [seeding-test-data.md](seeding-test-data.md) — load system data plus a sample municipality, funds, providers, and identities so the website and admin panels are usable; the seeder prints a dev access token.
+3. [login-and-test-users.md](login-and-test-users.md) — sign in locally via email link (or log file when mail is disabled) or paste the seeded access token when you want to skip mail.
 
-Keep documentation focused on the work at hand. Start with a small, specific .md document when a feature or workflow needs explanation, then restructure later if several related pages grow into a larger topic. Avoid creating broad empty sections upfront.
 
-### Folders
-Use `features/` for product or platform behavior. Use `testing/` for developer workflows that explain how to verify behavior locally.
+## Contributing
 
-Use sentence case for headings: capitalize the first word and proper nouns only.
-
-- Keep each page focused on one clear purpose.
-- Prefer practical examples and commands over long theory.
-- Use backticks for file paths, command names, and config keys.
-- Update docs in the same PR when behavior changes.
+If you want to contribute to Forus, read [CONTRIBUTING.md](../CONTRIBUTING.md) for the workflow: which repository to branch from, branch naming, commits, and pull requests. Use [glossary.md](glossary.md) for domain terms when you write or review documentation.
 
 ## Feature docs
 
-Documentation for specific features lives under `features/`. Add a new file here when a feature needs its own reference.
+Documentation for specific features lives under `features/`. These guides will explain how features work.
 
 - [features/digest-emails.md](features/digest-emails.md) — how digest emails collect recent activity and choose singular or plural text.
 - [features/translations.md](features/translations.md) — how webshop translations work, and how to change strings safely.
 
 ## Testing docs
 
-Testing documentation lives under `testing/`. Add a new file here when a local verification workflow needs its own reference.
+Testing documentation lives under `testing/`.
 
 - [testing/email.md](testing/email.md) — how to test outgoing and digest emails locally.
 
-## Related references
+## Security
 
-- [../CONTRIBUTING.md](../CONTRIBUTING.md) — minimal contribution flow.
-- [../backend/readme-docker.md](../backend/readme-docker.md) — full backend Docker reference.
-- [../forus-frontend-react/readme.md](../forus-frontend-react/readme.md) — frontend quick start.
-- [../forus-frontend-react/readme-docker.md](../forus-frontend-react/readme-docker.md) — full frontend Docker reference.
-- [../backend/SECURITY.md](../backend/SECURITY.md) — reporting vulnerabilities.
+Do not report security or privacy issues in public issues. See [backend/SECURITY.md](../backend/SECURITY.md) for how to report vulnerabilities privately (email `security@forus.io`) and how Forus handles disclosure and fixes.

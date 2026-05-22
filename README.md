@@ -1,21 +1,41 @@
 # Forus
 
-Forus is an open-source platform for governments and charitable organizations that want to issue and manage social benefit policies. This repository contains the main Laravel backend and React web frontend used to run and develop the platform.
+## Forus main repo
+This repository is the contributor entry point for the Forus open-source platform. It contains documentation, local setup guides, and links to the backend and frontend source as submodules.
 
-The React frontend communicates with the Laravel backend API. For local development, both usually need to run at the same time.
+## About Forus
+Forus is an open-source multi-tenant SaaS platform that provides organizations such as governments and charities with a wide range of functionalities to issue and manage social benefit policies.
+
+The platform can be used for policies that address a broad range of social challenges, including low income, social inclusion, access to transport, health and wellbeing, participation in sports and culture, support for local entrepreneurship, and sustainability.
+
+Effective social benefit policies require a full operational process. Organizations need to reach and inform target groups, explain eligibility criteria, provide secure and accessible application flows, validate applications and data, issue support in the required form, monitor how funds are used, prevent fraud and abuse, and report on financial activity and policy impact.
+
+Support can be provided through Forus in different ways. This can include a direct monetary payout, a reimbursement after the applicant submits proof of costs, a QR voucher with a balance that can be spent with approved providers, or a discount.
+
+## How it works
+
+Forus runs as one shared platform, a multi-tenant SaaS application. A single backend stores organizations, funds, identities, applications, issued support, transactions, and related configuration.
+
+Users can create an individual account, an organizational account, or both, depending on their role. Organizational users can access role-specific admin panels. Through these admin panels, an organization can create and manage funds, configure the rules and settings for specific policies, and publish one or more websites to reach different target groups.
+
+A typical flow starts with a sponsor organization configuring a fund in the sponsor admin panel. The fund defines the policy rules, eligibility criteria, budget, providers, and method of issuing support. The fund is then published on a public website, where an applicant can sign in, view available support, check eligibility, and submit a fund request. When validation is enabled, validator employees review the request and approve or reject it.
+
+After approval, support is issued in the configured form, such as a voucher, payout, reimbursement or discount. The applicant can use the support on the website through webshop flows, or with a provider that redeems the voucher at the counter. Not every fund uses every step. The configuration determines which parts of the process apply.
+
+
 
 ## Repository structure
 
-- `backend/`, Laravel (PHP) API
-- `forus-frontend-react/`, React web applications for the webshop and the sponsor, provider, and validator dashboards
-
+- Main repository: `Forus` main repository
+- Submodule: `forus-backend`
+- Submodule: `forus-frontend`
 ## Start here
 
-- Review the documentation overview in [docs/index.md](docs/index.md)
-- Set up the project locally with [docs/local-setup.md](docs/local-setup.md)
-- Seed local test data with [docs/seeding-test-data.md](docs/seeding-test-data.md)
-- Sign in locally using [docs/login-and-test-users.md](docs/login-and-test-users.md)
-- See [CONTRIBUTING.md](CONTRIBUTING.md) for the contribution workflow
+1. Make sure you have a general understanding of the structure of the project documentation [docs/index.md](docs/index.md)
+2. Run Forus on your machine: install the required tools, clone the repository (including submodules), and start the backend and frontend — [docs/local-setup.md](docs/local-setup.md)
+3. Seed the database with sample organizations, funds, and identities so the website and admin panels show real data and you can sign in locally. [docs/seeding-test-data.md](docs/seeding-test-data.md)
+4. Sign into the system as a user and check out the UI´s [docs/login-and-test-users.md](docs/login-and-test-users.md)
+5. Learn how to make contributions to the codebase or documentation [CONTRIBUTING.md](CONTRIBUTING.md) for the contribution workflow
 
 ## Project docs
 
@@ -25,6 +45,7 @@ The React frontend communicates with the Laravel backend API. For local developm
 | [docs/local-setup.md](docs/local-setup.md) | Run the backend and frontend locally |
 | [docs/seeding-test-data.md](docs/seeding-test-data.md) | Seed organizations, funds, and test identities |
 | [docs/login-and-test-users.md](docs/login-and-test-users.md) | Local login flow and development token shortcut |
+| [docs/glossary.md](docs/glossary.md) | Domain terms and recommended wording |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Basic contribution workflow |
 | [backend/readme-docker.md](backend/readme-docker.md) | Backend Docker reference |
 | [forus-frontend-react/readme-docker.md](forus-frontend-react/readme-docker.md) | Frontend Docker reference |
