@@ -1,9 +1,6 @@
 # Forus
 
-## Forus main repo
-This repository is the contributor entry point for the Forus open-source platform. It contains documentation, local setup guides, and links to the backend and frontend source as submodules.
-
-## About Forus
+## About
 Forus is an open-source multi-tenant SaaS platform that provides organizations such as governments and charities with a wide range of functionalities to issue and manage social benefit policies.
 
 The platform can be used for policies that address a broad range of social challenges, including low income, social inclusion, access to transport, health and wellbeing, participation in sports and culture, support for local entrepreneurship, and sustainability.
@@ -22,7 +19,8 @@ A typical flow starts with a sponsor organization configuring a fund in the spon
 
 After approval, support is issued in the configured form, such as a voucher, payout, reimbursement or discount. The applicant can use the support on the website through webshop flows, or with a provider that redeems the voucher at the counter. Not every fund uses every step. The configuration determines which parts of the process apply.
 
-
+## Forus main repo
+This repository is the contributor entry point for the Forus open-source platform. It contains documentation, local setup guides, and links to the backend and frontend source as submodules.
 
 ## Repository structure
 
