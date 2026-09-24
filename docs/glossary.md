@@ -26,7 +26,7 @@ The municipal or sponsor policy behind support offered through Forus (Dutch: *so
 
 A named **social benefit policy** that a **sponsor** organization runs in Forus (for example a child benefit fund, a city pass, or a swimming-lesson fund). The fund record holds the public name, description, start and end dates, and lifecycle state (`active`, `paused`, `closed`, or `waiting`).
 
-Most behavior is configured on the linked **fund config**: who may apply (**criteria** and optional back-office checks), whether support is issued as **vouchers** or **payouts**, which flows are enabled (fund requests, prevalidation, direct requests, reservations, reimbursements, physical cards, and more), and which **providers** may take part. Amount rules live in fund formulas; budget is tracked through top-ups and issued vouchers. When the fund is public and tied to an **implementation**, residents see it on the municipal **website**; **webshop flows** apply only when that fund uses provider offers and related redemption. **Employees** manage the fund from the sponsor **admin panel**.
+Most behavior is configured on the linked **fund config**: who may apply (**criteria** and optional back-office checks), whether support is issued as **vouchers** or **payouts**, which flows are enabled (fund requests, prevalidation, direct requests, reservations, reimbursements, physical cards, and more), and which **providers** may take part. Amount rules live in fund formulas; budget is tracked through top-ups and issued vouchers. When the fund is public and tied to an **implementation**, the target group sees it on the **website**; **webshop flows** apply only when that fund uses provider offers and related redemption. **Employees** manage the fund from the sponsor **admin panel**.
 
 ## Roles
 
@@ -79,19 +79,19 @@ Product label used in digests and parts of the API (for example `RequesterDigest
 
 ## Interfaces
 
-Where residents and **employees** use the system.
+Where a target group and **employees** use the system.
 
 ### Website (public)
 
-The resident-facing site for one municipality or brand: fund information, eligibility checks (for example regelingencheck), applications, CMS pages, sign-in, and—when the fund is set up for it—**webshop flows**.
+The public site for the people a sponsor wants to reach. It shows fund information, eligibility checks (for example regelingencheck), applications, pages, and sign-in, and—when the fund is set up for it—**webshop flows**. Every public website uses the frontend in `forus-frontend-react`.
 
-**Note:** With clients, **website** or **municipal website** is usually clear. When there is no offer or redemption part, **website** fits better than **webshop** for the whole site.
+**Note:** With clients, **website** is usually clear. When there is no offer or redemption part, **website** fits better than **webshop** for the whole site.
 
 ### Implementation
 
-Technical configuration for one public **website** plus linked **admin panels**: branding, URLs, CMS, pre-check, DigiD, mail settings, and which funds are attached (`implementations.key`, `Client-Key` header).
+The settings for one public **website**: title, look, sign-in, pages, and which funds are attached. The frontend loads one implementation at a time through its key (`implementations.key`, `Client-Key` header). The sponsor, provider, and validator **admin panels** for that website use the same key.
 
-**Note:** With municipalities and customer-facing teams, **website** is usually clearer. In seeds, API debugging, and repository docs, the name **implementation** and `Client-Key` match the product.
+**Note:** In seeds, API debugging, and repository docs, the name **implementation** and `Client-Key` match the product. When writing for the people a sponsor wants to reach, **website** is usually clearer.
 
 ### Webshop
 

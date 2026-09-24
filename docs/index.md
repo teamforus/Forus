@@ -30,4 +30,4 @@ Testing documentation lives under `testing/`.
 
 ## Security
 
-Do not report security or privacy issues in public issues. See [backend/SECURITY.md](../backend/SECURITY.md) for how to report vulnerabilities privately (email `security@forus.io`) and how Forus handles disclosure and fixes.
+Do not report security or privacy issues in public issues. See [SECURITY.md](../SECURITY.md) for how to report vulnerabilities privately (email `security@forus.io`) and how Forus handles disclosure and fixes.
