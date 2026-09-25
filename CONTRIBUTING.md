@@ -16,7 +16,7 @@ Forus has one main repository and two submodules:
 
 - Main repo: `teamforus/Forus`
 - Backend submodule: `backend/` -> `teamforus/forus-backend`
-- Frontend submodule: `forus-frontend-react/` -> `teamforus/forus-frontend-react`
+- Frontend submodule: `forus-frontend/` -> `teamforus/forus-frontend`
 
 Clone the main repo with submodules (see [docs/local-setup.md](docs/local-setup.md#get-the-project)):
 
@@ -62,13 +62,13 @@ Open your pull request in the repository that contains your changes:
 
 - Changes in `docs/`, `README.md`, or `CONTRIBUTING.md` -> PR in `teamforus/Forus`
 - Changes in `backend/*` -> PR in `teamforus/forus-backend`
-- Changes in `forus-frontend-react/*` -> PR in `teamforus/forus-frontend-react`
+- Changes in `forus-frontend/*` -> PR in `teamforus/forus-frontend`
 
 Branch from the correct branch of that repository:
 
 - In `teamforus/Forus`, branch from `master`
 - In `teamforus/forus-backend`, branch from `develop`
-- In `teamforus/forus-frontend-react`, branch from `develop`
+- In `teamforus/forus-frontend`, branch from `develop`
 
 ### Branch naming
 
@@ -126,7 +126,7 @@ This runs the backend tests and helps check that important application behavior 
 
 
 ### Frontend tests
-Frontend, from `forus-frontend-react/`:
+Frontend, from `forus-frontend/`:
 
 ```bash
 npm run build
