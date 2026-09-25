@@ -37,12 +37,12 @@ Install and check these **before** you run setup commands. Use the checklist tha
 | **Web browser** | Open `http://localhost:…` to verify the app | Any current Chrome, Firefox, Edge, or Safari |
 | **Code editor** | Edit files; most editors include a terminal | [VS Code](https://code.visualstudio.com/), [Cursor](https://cursor.com/), or similar |
 | **Terminal** | Run `git`, `docker`, and setup commands | macOS **Terminal** or Linux shell; on Windows we recommend **Git Bash** (see note below) |
-| **Git** | Clone the repo and load **submodules** (`backend/`, `forus-frontend-react/`) | [git-scm.com/downloads](https://git-scm.com/downloads) — run `git --version` to confirm |
+| **Git** | Clone the repo and load **submodules** (`backend/`, `forus-frontend/`) | [git-scm.com/downloads](https://git-scm.com/downloads) — run `git --version` to confirm |
 | **GitHub account** | Clone over HTTPS and open pull requests later | [github.com](https://github.com/) — optional only if someone else gave you a full copy of the project |
 
 **Terminal on Windows:** We recommend **Git Bash**, which is installed with [Git for Windows](https://git-scm.com/downloads). It matches the bash-style commands in this guide (for example `./docker/cmd/start-docker-compose.sh`) and avoids many PowerShell quirks. In VS Code or Cursor you can set the default terminal profile to Git Bash. macOS and Linux can use the built-in terminal.
 
-**Git is required** for the supported setup: the main Forus repo points at two submodule repositories. Cloning without submodules leaves `backend/` or `forus-frontend-react/` empty and later steps fail. Downloading a ZIP from GitHub is possible but easy to get wrong; use Git for your first setup.
+**Git is required** for the supported setup: the main Forus repo points at two submodule repositories. Cloning without submodules leaves `backend/` or `forus-frontend/` empty and later steps fail. Downloading a ZIP from GitHub is possible but easy to get wrong; use Git for your first setup.
 
 ### Docker path (Option A)
 
@@ -88,14 +88,14 @@ Use this if you are new to the toolchain:
 
 ## Get the project
 
-Clone the **main** Forus repository **with submodules** so `backend/` and `forus-frontend-react/` contain code:
+Clone the **main** Forus repository **with submodules** so `backend/` and `forus-frontend/` contain code:
 
 ```bash
 git clone --recurse-submodules https://github.com/teamforus/Forus.git
 cd Forus
 ```
 
-If you already cloned without submodules (empty `backend/` or `forus-frontend-react/`):
+If you already cloned without submodules (empty `backend/` or `forus-frontend/`):
 
 ```bash
 git submodule update --init --recursive
@@ -104,7 +104,7 @@ git submodule update --init --recursive
 Confirm the folders are populated, for example:
 
 ```bash
-ls backend/composer.json forus-frontend-react/package.json
+ls backend/composer.json forus-frontend/package.json
 ```
 
 Both files should exist. Submodule layout is described in [CONTRIBUTING.md](../CONTRIBUTING.md).
@@ -113,7 +113,7 @@ Both files should exist. Submodule layout is described in [CONTRIBUTING.md](../C
 
 ## Option A — Docker
 
-Detailed reference: [../backend/readme-docker.md](../backend/readme-docker.md) and [../forus-frontend-react/readme-docker.md](../forus-frontend-react/readme-docker.md).
+Detailed reference: [../backend/readme-docker.md](../backend/readme-docker.md) and [../forus-frontend/readme-docker.md](../forus-frontend/readme-docker.md).
 
 ### How editing works with Docker
 
@@ -143,10 +143,10 @@ docker compose exec app bash -c "php artisan db:seed"
 
 ### Frontend
 
-In a **second** terminal, go to `forus-frontend-react/`:
+In a **second** terminal, go to `forus-frontend/`:
 
 ```bash
-cd forus-frontend-react
+cd forus-frontend
 cp env.example.js env.js
 docker compose up -d
 docker compose exec app sh -c "npm ci"
@@ -193,10 +193,10 @@ Default API URL: http://localhost:8000
 
 ### Frontend
 
-From `forus-frontend-react/` (separate terminal):
+From `forus-frontend/` (separate terminal):
 
 ```bash
-cd forus-frontend-react
+cd forus-frontend
 npm ci
 cp env.example.js env.js
 npm run start
@@ -223,10 +223,10 @@ Open in your browser:
 
 | Symptom | What to check |
 | --- | --- |
-| `backend/` or `forus-frontend-react/` is empty | Run [Get the project](#get-the-project) submodule commands |
+| `backend/` or `forus-frontend/` is empty | Run [Get the project](#get-the-project) submodule commands |
 | `docker: command not found` | Install [Docker Desktop](https://www.docker.com/products/docker-desktop/) and use a new terminal |
 | Cannot connect to the Docker daemon | Open Docker Desktop and wait until it is running |
-| Command fails with “no such file” in `backend/` | Your shell is in the wrong folder — `cd` into `backend/` or `forus-frontend-react/` first |
+| Command fails with “no such file” in `backend/` | Your shell is in the wrong folder — `cd` into `backend/` or `forus-frontend/` first |
 | Frontend loads but API errors (native) | `env.js` → `api_url` must match your backend URL |
 | Port already in use | Stop another app on port 8000, 3000, or 5000, or change ports in Docker/native config |
 

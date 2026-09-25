@@ -13,7 +13,7 @@
   <a href="https://github.com/teamforus/Forus/releases"><img src="https://img.shields.io/github/v/release/teamforus/Forus" alt="Release"></a>
   <a href="https://github.com/teamforus/forus-backend/blob/develop/composer.json"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fteamforus%2Fforus-backend%2Fdevelop%2Fcomposer.json&query=%24.require.php&label=PHP" alt="PHP"></a>
   <a href="https://github.com/teamforus/forus-backend/blob/develop/composer.json"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fteamforus%2Fforus-backend%2Fdevelop%2Fcomposer.json&query=%24.require%5B%22laravel%2Fframework%22%5D&label=Laravel" alt="Laravel"></a>
-  <a href="https://github.com/teamforus/forus-frontend-react/blob/develop/package.json"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fteamforus%2Fforus-frontend-react%2Fdevelop%2Fpackage.json&query=%24.dependencies.react&label=React" alt="React"></a>
+  <a href="https://github.com/teamforus/forus-frontend/blob/develop/package.json"><img src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fteamforus%2Fforus-frontend%2Fdevelop%2Fpackage.json&query=%24.dependencies.react&label=React" alt="React"></a>
 </p>
 
 ## About
@@ -42,7 +42,7 @@ This repository is the contributor entry point for the Forus open-source platfor
 
 - Main repository: `Forus` main repository
 - Submodule: `forus-backend`
-- Submodule: `forus-frontend-react`
+- Submodule: `forus-frontend`
 ## Start here
 
 1. Make sure you have a general understanding of the structure of the project documentation [docs/index.md](docs/index.md)
@@ -62,7 +62,7 @@ This repository is the contributor entry point for the Forus open-source platfor
 | [docs/glossary.md](docs/glossary.md) | Domain terms and recommended wording |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Basic contribution workflow |
 | [backend/readme-docker.md](backend/readme-docker.md) | Backend Docker reference |
-| [forus-frontend-react/readme-docker.md](forus-frontend-react/readme-docker.md) | Frontend Docker reference |
+| [forus-frontend/readme-docker.md](forus-frontend/readme-docker.md) | Frontend Docker reference |
 | [SECURITY.md](SECURITY.md) | Security issue reporting |
 
 ## Core domain model (quick overview)
@@ -89,7 +89,7 @@ A fund defines the support that can be issued. This includes who can apply, whic
 
 ### Websites and implementations
 
-A website is the public site for the people a sponsor wants to reach. Every public website uses the frontend in `forus-frontend-react`. A new website is not a new frontend repository.
+A website is the public site for the people a sponsor wants to reach. Every public website uses the frontend in `forus-frontend`. A new website is not a new frontend repository.
 
 The frontend loads one implementation at a time, using that implementation's key (`Client-Key`). An implementation holds the title, look, funds, sign-in, and pages for that website.
 

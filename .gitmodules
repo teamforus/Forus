@@ -1,6 +1,6 @@
 [submodule "backend"]
 	path = backend
 	url = https://github.com/teamforus/forus-backend
-[submodule "forus-frontend-react"]
-	path = forus-frontend-react
-	url = https://github.com/teamforus/forus-frontend-react.git
+[submodule "forus-frontend"]
+	path = forus-frontend
+	url = https://github.com/teamforus/forus-frontend.git

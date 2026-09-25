@@ -83,7 +83,7 @@ Where a target group and **employees** use the system.
 
 ### Website (public)
 
-The public site for the people a sponsor wants to reach. It shows fund information, eligibility checks (for example regelingencheck), applications, pages, and sign-in, and—when the fund is set up for it—**webshop flows**. Every public website uses the frontend in `forus-frontend-react`.
+The public site for the people a sponsor wants to reach. It shows fund information, eligibility checks (for example regelingencheck), applications, pages, and sign-in, and—when the fund is set up for it—**webshop flows**. Every public website uses the frontend in `forus-frontend`.
 
 **Note:** With clients, **website** is usually clear. When there is no offer or redemption part, **website** fits better than **webshop** for the whole site.
 
