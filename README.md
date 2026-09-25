@@ -42,7 +42,7 @@ This repository is the contributor entry point for the Forus open-source platfor
 
 - Main repository: `Forus` main repository
 - Submodule: `forus-backend`
-- Submodule: `forus-frontend`
+- Submodule: `forus-frontend-react`
 ## Start here
 
 1. Make sure you have a general understanding of the structure of the project documentation [docs/index.md](docs/index.md)
