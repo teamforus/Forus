@@ -13,7 +13,7 @@ Support can be provided through Forus in different ways. This can include a dire
 
 Forus runs as one shared platform, a multi-tenant SaaS application. A single backend stores organizations, funds, identities, applications, issued support, transactions, and related configuration.
 
-Users can create an individual account, an organizational account, or both, depending on their role. Organizational users can access role-specific admin panels. Through these admin panels, an organization can create and manage funds, configure the rules and settings for specific policies, and publish one or more websites to reach different target groups.
+Users can create an individual account, an organizational account, or both, depending on their role. Organizational users can access role-specific admin panels. Through these admin panels, an organization can create and manage funds and configure the rules and settings for specific policies. A public website reaches a target group. It is available once an implementation is in place. Setting up that implementation is a configuration step, not an action in the admin panel. The sponsor maintains the website from the admin panel.
 
 A typical flow starts with a sponsor organization configuring a fund in the sponsor admin panel. The fund defines the policy rules, eligibility criteria, budget, providers, and method of issuing support. The fund is then published on a public website, where an applicant can sign in, view available support, check eligibility, and submit a fund request. When validation is enabled, validator employees review the request and approve or reject it.
 
@@ -26,7 +26,7 @@ This repository is the contributor entry point for the Forus open-source platfor
 
 - Main repository: `Forus` main repository
 - Submodule: `forus-backend`
-- Submodule: `forus-frontend`
+- Submodule: `forus-frontend-react`
 ## Start here
 
 1. Make sure you have a general understanding of the structure of the project documentation [docs/index.md](docs/index.md)
@@ -47,7 +47,7 @@ This repository is the contributor entry point for the Forus open-source platfor
 | [CONTRIBUTING.md](CONTRIBUTING.md) | Basic contribution workflow |
 | [backend/readme-docker.md](backend/readme-docker.md) | Backend Docker reference |
 | [forus-frontend-react/readme-docker.md](forus-frontend-react/readme-docker.md) | Frontend Docker reference |
-| [backend/SECURITY.md](backend/SECURITY.md) | Security issue reporting |
+| [SECURITY.md](SECURITY.md) | Security issue reporting |
 
 ## Core domain model (quick overview)
 
@@ -71,9 +71,13 @@ Organizations with a provider role offer goods and services that can be made ava
 
 A fund defines the support that can be issued. This includes who can apply, which type of support is available, where it can be used, and the period in which it is valid.
 
-### Websites and implementations provide access to the system
+### Websites and implementations
 
-Users interact with the system through websites and other frontends connected to an implementation. This is where users view offers, sign in, apply for funds, and track issued support.
+A website is the public site for the people a sponsor wants to reach. Every public website uses the frontend in `forus-frontend-react`. A new website is not a new frontend repository.
+
+The frontend loads one implementation at a time, using that implementation's key (`Client-Key`). An implementation holds the title, look, funds, sign-in, and pages for that website.
+
+Particular existing websites also keep their own text in the frontend. That text is shown only when the implementation key matches. The pages and settings of every website still come from the implementation.
 
 ### Vouchers and other allocations are issued through the system
 
@@ -82,7 +86,7 @@ After approval, or through another configured flow such as direct allocation or 
 ### This is how the basic flow works
 
 1. A sponsor organization defines a fund.
-2. The fund is published through an implementation and its connected frontends.
+2. The fund is published on the website of an implementation.
 3. An identity signs in and applies, or is granted access.
 4. Support is issued.
 5. Issued support is redeemed with providers or paid out through the configured flow.

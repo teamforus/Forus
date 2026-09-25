@@ -8,7 +8,7 @@ Thank you for your interest in contributing to Forus. This guide outlines the ba
 - Read [docs/local-setup.md](docs/local-setup.md) and get the project running locally.
 - Read [docs/seeding-test-data.md](docs/seeding-test-data.md) to seed test data for local development and testing.
 - Read [docs/login-and-test-users.md](docs/login-and-test-users.md) so you can log in.
-- Security-related issues should not be reported in a public issue. Please follow the process in [backend/SECURITY.md](backend/SECURITY.md).
+- Security-related issues should not be reported in a public issue. Please follow the process in [SECURITY.md](SECURITY.md).
 
 ## Main repo and submodules
 
@@ -23,6 +23,38 @@ Clone the main repo with submodules (see [docs/local-setup.md](docs/local-setup.
 ```bash
 git clone --recurse-submodules https://github.com/teamforus/Forus.git
 ```
+
+## Contribution responsibility
+
+Contributors are responsible for the complete content of their contributions. Review and understand what you submit, including its security and licensing. You must be able to explain, maintain, and modify it.
+
+Before a pull request, run the checks under [Running checks locally](#running-checks-locally). Report suspected security vulnerabilities as described in [SECURITY.md](SECURITY.md), not in a public issue or pull request.
+
+The use of automated tools, code generators, or AI-assisted development does not change these responsibilities.
+
+## Security and confidential information
+
+Do not disclose or provide non-public information to external services unless that use is explicitly authorized.
+
+This includes:
+
+- personal data or production data
+- credentials, passwords, API keys, tokens, private keys, or other secrets
+- non-public security vulnerabilities or security reports
+- confidential information belonging to Forus, municipalities, suppliers, partners, or other third parties
+- information subject to a non-disclosure agreement or other confidentiality obligation
+
+Suspected or confirmed security vulnerabilities should not be disclosed through public issues or pull requests. Follow [SECURITY.md](SECURITY.md).
+
+## AI-assisted development
+
+AI-assisted development tools may be used when contributing to Forus.
+
+You remain responsible for reviewing, understanding, and validating all AI-assisted content before submission, including its security and licensing. Run the checks under [Running checks locally](#running-checks-locally).
+
+Publicly available Forus source code, documentation, and other public project information may be processed using AI tools.
+
+When using AI tools, the security and confidentiality requirements above continue to apply.
 
 ## Adding changes
 
