@@ -131,11 +131,8 @@ Open a terminal, go to the `backend/` folder, then run:
 cd backend
 docker compose build
 ./docker/cmd/start-docker-compose.sh
-docker compose exec app bash -c "cp .env.example .env"
-docker compose exec app bash -c "composer install"
-docker compose exec app bash -c "php artisan key:generate"
-docker compose exec app bash -c "php artisan migrate"
 docker compose exec app bash -c "php artisan db:seed"
+docker compose exec app bash -c "php artisan test-data:seed"
 ```
 
 - Backend API: http://localhost:8000

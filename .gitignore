@@ -53,6 +53,8 @@ backend-php/public/assets
 ehthumbs.db
 Thumbs.db
 desktop.ini
+flake.nix
+flake.lock
 
 # Packages #
 ############
