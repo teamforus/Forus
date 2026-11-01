@@ -30,7 +30,7 @@ Works best when your backend can actually send (or log) mail.
    Login links will be written to `backend/storage/logs/laravel.log` instead of being sent.
 3. Go to a dashboard or webshop, enter the email you configured in
    `config/forus/test_data/configs/custom/config.php` (`primary_email`), and follow the link
-   from the inbox or from the log file.
+   from the inbox or from the log file. (If from the log file, remember to replace escaped ampersands in query parameters for a proper ampersand: `&amp;` has to become `&`.)
 
 ### Fast fallback: dev token shortcut
 
