@@ -13,7 +13,7 @@ To run Forus locally for development or testing, follow these steps in order:
 
 ## Contributing
 
-If you want to contribute to Forus, read [CONTRIBUTING.md](../CONTRIBUTING.md) for the workflow: which repository to branch from, branch naming, commits, and pull requests. Use [glossary.md](glossary.md) for domain terms when you write or review documentation.
+If you want to contribute to Forus, read [CONTRIBUTING.md](https://github.com/teamforus/Forus/blob/master/CONTRIBUTING.md) for the workflow: which repository to branch from, branch naming, commits, and pull requests. Use [glossary.md](glossary.md) for domain terms when you write or review documentation.
 
 ## Feature docs
 
@@ -30,4 +30,4 @@ Testing documentation lives under `testing/`.
 
 ## Security
 
-Do not report security or privacy issues in public issues. See [SECURITY.md](../SECURITY.md) for how to report vulnerabilities privately (email `security@forus.io`) and how Forus handles disclosure and fixes.
+Do not report security or privacy issues in public issues. See [SECURITY.md](https://github.com/teamforus/Forus/blob/master/SECURITY.md) for how to report vulnerabilities privately (email `security@forus.io`) and how Forus handles disclosure and fixes.

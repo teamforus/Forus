@@ -1,0 +1,49 @@
+[project]
+site_name = "Forus docs"
+docs_dir = "."
+site_dir = "site"
+extra_css = ["stylesheets/extra.css"]
+
+# Paths are relative to docs_dir, which is this directory.
+exclude_docs = """
+README.md
+zensical.toml
+site/
+"""
+
+nav = [
+  { "Home" = "index.md" },
+  { "Getting started" = [
+    { "Local setup" = "local-setup.md" },
+    { "Seeding test data" = "seeding-test-data.md" },
+    { "Login and test users" = "login-and-test-users.md" },
+  ] },
+  { "Features" = [
+    { "Digest emails" = "features/digest-emails.md" },
+    { "Webshop translations" = "features/translations.md" },
+  ] },
+  { "Testing" = [
+    { "Email testing" = "testing/email.md" },
+  ] },
+  { "Glossary" = "glossary.md" },
+]
+
+[project.theme]
+logo = "assets/logo-black.svg"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme)"
+toggle.icon = "lucide/sun-moon"
+toggle.name = "Switch to light mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: light)"
+scheme = "default"
+toggle.icon = "lucide/sun"
+toggle.name = "Switch to dark mode"
+
+[[project.theme.palette]]
+media = "(prefers-color-scheme: dark)"
+scheme = "slate"
+toggle.icon = "lucide/moon"
+toggle.name = "Switch to system preference"

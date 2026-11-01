@@ -16,6 +16,10 @@ platform/test
 # Assets
 backend-php/public/assets
 
+# Docs build output
+docs/site
+docs/.cache
+
 # Compiled source #
 ###################
 *.com

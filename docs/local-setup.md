@@ -20,7 +20,7 @@ A web server (Apache / Nginx) on your host is **optional**. Docker includes one.
 
 1. **Prepare your machine** — editor, terminal, Git, and (for Docker) Docker Desktop ([Before you start](#before-you-start)).
 2. **Get the code** — clone the main repo **with submodules** ([Get the project](#get-the-project)).
-3. **Start backend and frontend** — [Option A — Docker](#option-a--docker) or [Option B — Native](#option-b--native).
+3. **Start backend and frontend** — [Option A: Docker](#option-a-docker) or [Option B: Native](#option-b-native).
 4. **Load sample data** — [seeding-test-data.md](seeding-test-data.md).
 5. **Sign in and explore** — [login-and-test-users.md](login-and-test-users.md).
 
@@ -107,13 +107,13 @@ Confirm the folders are populated, for example:
 ls backend/composer.json forus-frontend/package.json
 ```
 
-Both files should exist. Submodule layout is described in [CONTRIBUTING.md](../CONTRIBUTING.md).
+Both files should exist. Submodule layout is described in [CONTRIBUTING.md](https://github.com/teamforus/Forus/blob/master/CONTRIBUTING.md).
 
 ---
 
-## Option A — Docker
+## Option A: Docker
 
-Detailed reference: [../backend/readme-docker.md](../backend/readme-docker.md) and [../forus-frontend/readme-docker.md](../forus-frontend/readme-docker.md).
+Detailed reference: [backend/readme-docker.md](https://github.com/teamforus/forus-backend/blob/develop/readme-docker.md) and [forus-frontend/readme-docker.md](https://github.com/teamforus/forus-frontend/blob/develop/readme-docker.md).
 
 ### How editing works with Docker
 
@@ -168,7 +168,7 @@ Open in your browser:
 
 ---
 
-## Option B — Native
+## Option B: Native
 
 ### Backend
 
@@ -240,4 +240,4 @@ Open in your browser:
 ## Related
 
 - [testing/email.md](testing/email.md) — Mailpit and local mail testing
-- [CONTRIBUTING.md](../CONTRIBUTING.md) — branches, commits, and pull requests
+- [CONTRIBUTING.md](https://github.com/teamforus/Forus/blob/master/CONTRIBUTING.md) — branches, commits, and pull requests

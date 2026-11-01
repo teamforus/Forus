@@ -451,6 +451,6 @@ Using a faster cache driver (like Redis) is recommended if available.
 
 ## Related
 
-- Scripts: [`forus-frontend/translations/`](../../forus-frontend/translations/)
-- Template: [`forus-frontend/deepl.env.example.mjs`](../../forus-frontend/deepl.env.example.mjs)
-- NPM scripts: [`forus-frontend/package.json`](../../forus-frontend/package.json) → `translations-*`
+- Scripts: [`forus-frontend/translations/`](https://github.com/teamforus/forus-frontend/tree/develop/translations)
+- Template: [`forus-frontend/deepl.env.example.mjs`](https://github.com/teamforus/forus-frontend/blob/develop/deepl.env.example.mjs)
+- NPM scripts: [`forus-frontend/package.json`](https://github.com/teamforus/forus-frontend/blob/develop/package.json) → `translations-*`
