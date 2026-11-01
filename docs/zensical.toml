@@ -26,6 +26,17 @@ nav = [
     { "Email testing" = "testing/email.md" },
   ] },
   { "Glossary" = "glossary.md" },
+  { "Implementation Guides" = [
+    { "Wallet mobile app API" = [
+      { "Mobile login flow" = "implementation-guides/mobile-login-flow-requester.md" },
+      { "Login through an existing browser session" = "implementation-guides/browser-session-login-requester.md" },
+    ] },
+    { "Provider mobile app API" = [
+      { "Mobile login flow" = "implementation-guides/mobile-login-flow-provider.md" },
+      { "Login through an existing browser session" = "implementation-guides/browser-session-login-provider.md" },
+      { "Login through an existing provider mobile app session" = "implementation-guides/provider-app-session-login.md" },
+    ] },
+  ] },
 ]
 
 [project.theme]
@@ -47,3 +58,8 @@ media = "(prefers-color-scheme: dark)"
 scheme = "slate"
 toggle.icon = "lucide/moon"
 toggle.name = "Switch to system preference"
+
+[project.markdown_extensions]
+pymdownx.superfences.custom_fences = [
+  { name = "mermaid", class = "mermaid", format = "pymdownx.superfences.fence_code_format" },
+]
